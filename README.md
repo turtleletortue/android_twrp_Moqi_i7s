@@ -37,10 +37,12 @@ repo init -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.
 repo sync
 ```
 
-Then add these projects to .repo/manifest.xml:
+Then add these projects to .repo/local_manifests/roomservice.xml:
 
 ```xml
 <project path="device/realme/RMX1921" name="pjgowtham/android_device_realme_RMX1851" remote="github" revision="android-9.0" />
+<remove-project name=android_bootable_recovery"
+                                               <project path=bootable/recovery name=mauronfrio/android_bootable_recovery remote=github revision="android-9.0" />
 ```
 
 Finally execute these:
