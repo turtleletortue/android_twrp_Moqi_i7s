@@ -12,21 +12,10 @@ TWRP device tree for Realme XT
 
 ## Features
 
-Works:
-
-- ADB
-- Decryption of /data
-- Screen brightness settings
-- Correct screenshot color
-- MTP
-- Flashing (opengapps, roms, images and so on)
-- Backup/Restore (Needs more testing)
-- USB OTG
-
-
-TO-DO:
-
-- Fix treble zip compatibility error
+Everything works
+Android 10 blobs
+Stock 10 kernel
+Uses the twrp theme to blackout notch area, Thanks to @mauronofrio
 
 ## Compile
 
@@ -42,7 +31,7 @@ Then add these projects to .repo/local_manifests/roomservice.xml:
 ```xml
 <project path="device/realme/RMX1921" name="pjgowtham/android_device_realme_RMX1851" remote="github" revision="android-9.0" />
 <remove-project name=android_bootable_recovery"
-                                               <project path=bootable/recovery name=mauronofrio/android_bootable_recovery remote=github revision="android-9.0" />
+<project path=bootable/recovery name=mauronofrio/android_bootable_recovery remote=github revision="android-9.0" />
 ```
 
 Finally execute these:
