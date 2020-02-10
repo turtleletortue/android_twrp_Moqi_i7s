@@ -29,7 +29,7 @@ repo sync
 Then add these projects to .repo/local_manifests/roomservice.xml:
 
 ```xml
-<project path="device/realme/RMX1921" name="pjgowtham/android_device_realme_RMX1851" remote="github" revision="android-9.0" />
+<project path="device/realme/RMX1921" name="pjgowtham/android_device_realme_RMX1851" remote="github" revision="twrp-9.0" />
 <remove-project name="android_bootable_recovery" />
 <project path="bootable/recovery" name="mauronofrio/android_bootable_recovery" remote="github" revision="android-9.0" />
 ```
