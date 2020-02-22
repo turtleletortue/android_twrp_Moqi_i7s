@@ -102,7 +102,9 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_FBE := true
 
 # TWRP specific build flags
-TW_THEME := portrait_hdpi_notch
+TW_THEME := portrait_hdpi
+TW_Y_OFFSET := 80
+TW_H_OFFSET := -80
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
