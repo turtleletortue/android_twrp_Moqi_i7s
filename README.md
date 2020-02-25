@@ -50,6 +50,12 @@ fastboot flash recovery out/target/product/RMX1921/recovery.img
 
 ## Other Sources
 
-Kernel Sources: using precompiled stock kernel
+Kernel Sources: using precompiled stock kernel (C01 kernel)
 
 ## Thanks
+mauronofrio
+thesprintster
+
+Orangefox recovery compile instructions
+Clone orangefox recovery repo from gitlab
+The orangefox compile settings are included in orangefox.txt. Just copy paste that in terminal and you are good to go.
