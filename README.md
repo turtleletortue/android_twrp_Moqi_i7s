@@ -56,6 +56,8 @@ Kernel Sources: using precompiled stock kernel (C01 kernel)
 mauronofrio
 thesprintster
 
-Orangefox recovery compile instructions
-Clone orangefox recovery repo from gitlab
+## Orangefox recovery compile instructions :
+
+Clone orangefox recovery repo from gitlab to bootable/recovery
+
 The orangefox compile settings are included in orangefox.txt. Just copy paste that in terminal and you are good to go.
