@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/realme/RMX1921
+DEVICE_PATH := device/Moqi/i7s
 
 # Architecture
 TARGET_ARCH := arm64
@@ -24,7 +24,7 @@ TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := kryo300
 
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-a
+TARGET_2ND_ARCH_VARIANT := armv7-a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a9
@@ -36,6 +36,9 @@ ENABLE_SCHEDBOOST := true
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := sdm710
 TARGET_NO_BOOTLOADER := true
+TARGET_NO_RECOVERY := true
+BOARD_USES_RECOVERY_AS_BOOT := true
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 TARGET_USES_UEFI := true
 
 # Platform
@@ -43,7 +46,7 @@ TARGET_BOARD_PLATFORM := sdm710
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno616
 
 # Kernel
-BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xA90000 androidboot.hardware=qcom androidboot.console=ttyMSM0 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 service_locator.enable=1 androidboot.configfs=true androidboot.usbcontroller=a600000.dwc3 swiotlb=1 loop.max_part=7 androidboot.selinux=permissive
+BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xA90000 androidboot.hardware=qcom androidboot.console=ttyMSM0 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 service_locator.enable=1 androidboot.configfs=true androidboot.usbcontroller=a600000.dwc3 swiotlb=1 buildvariant=user androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x00000100
@@ -57,13 +60,12 @@ BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_BOOTIMG_HEADER_VERSION := 1
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset $(BOARD_RAMDISK_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
-BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 
 # QCOM
 #TARGET_USE_SDCLANG := true
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := RMX1921
+TARGET_OTA_ASSERT_DEVICE := i7s
 
 # Avb
 BOARD_AVB_ENABLE := true
@@ -72,11 +74,11 @@ BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
+#BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := ‭5349965824‬
 BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 55141412864
-BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
+#BOARD_USERDATAIMAGE_PARTITION_SIZE := 55141412864
+#BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_PARTITION_SIZE := ‭1634656256
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
@@ -96,13 +98,13 @@ TARGET_COPY_OUT_VENDOR := vendor
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-AB_OTA_UPDATER := false
+AB_OTA_UPDATER := true
 
 # Crypto
 TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_FBE := true
-TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
-TARGET_HW_DISK_ENCRYPTION := true
+#TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
+#TARGET_HW_DISK_ENCRYPTION := true
 
 # TWRP specific build flags
 TW_THEME := portrait_hdpi
@@ -117,17 +119,17 @@ TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 TW_MAX_BRIGHTNESS := 1023
 TW_DEFAULT_BRIGHTNESS := 500
 # Adjust for notch (Needs to be commented for orangefox builds)
-TW_Y_OFFSET := 80 
-TW_H_OFFSET := -80
+#TW_Y_OFFSET := 80 
+#TW_H_OFFSET := -80
 #
 TW_NO_SCREEN_BLANK := true
 TWRP_INCLUDE_LOGCAT := true
-TARGET_USES_LOGD := true
-TARGET_USES_MKE2FS := true
+#TARGET_USES_LOGD := true
+#TARGET_USES_MKE2FS := true
 TW_EXCLUDE_TWRPAPP := true
 TW_HAS_EDL_MODE := true
-TW_OZIP_DECRYPT_KEY := "1c4c1ea3a12531ae491b21bb31613c11"
-TW_SKIP_COMPATIBILITY_CHECK := true
+#TW_OZIP_DECRYPT_KEY := "1c4c1ea3a12531ae491b21bb31613c11"
+#TW_SKIP_COMPATIBILITY_CHECK := true
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
