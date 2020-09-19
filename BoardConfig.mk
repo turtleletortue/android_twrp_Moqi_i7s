@@ -44,6 +44,7 @@ TARGET_USES_UEFI := true
 # Platform
 TARGET_BOARD_PLATFORM := sdm710
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno616
+QCOM_BOARD_PLATFORMS += sdm710
 
 # Kernel
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200n8 earlycon=msm_geni_serial,0xA90000 androidboot.hardware=qcom androidboot.console=ttyMSM0 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 service_locator.enable=1 androidboot.configfs=true androidboot.usbcontroller=a600000.dwc3 swiotlb=1 buildvariant=user androidboot.selinux=permissive
@@ -75,16 +76,16 @@ BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_FLASH_BLOCK_SIZE := 262144
 BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
 #BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := ‭5349965824‬
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3221225472‬
 BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
 #BOARD_USERDATAIMAGE_PARTITION_SIZE := 55141412864
 #BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_VENDORIMAGE_PARTITION_SIZE := ‭1634656256
+BOARD_VENDORIMAGE_PARTITION_SIZE := ‭1073741824
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # System as root
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
-BOARD_ROOT_EXTRA_FOLDERS := bluetooth dsp firmware persist
+BOARD_ROOT_EXTRA_FOLDERS := bt_firmware dsp firmware persist
 BOARD_SUPPRESS_SECURE_ERASE := true
 
 # File systems
@@ -116,7 +117,6 @@ TW_INCLUDE_NTFS_3G := true
 TW_USE_TOOLBOX := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
-TW_MAX_BRIGHTNESS := 1023
 TW_DEFAULT_BRIGHTNESS := 500
 # Adjust for notch (Needs to be commented for orangefox builds)
 #TW_Y_OFFSET := 80 
@@ -124,8 +124,8 @@ TW_DEFAULT_BRIGHTNESS := 500
 #
 TW_NO_SCREEN_BLANK := true
 TWRP_INCLUDE_LOGCAT := true
-#TARGET_USES_LOGD := true
-#TARGET_USES_MKE2FS := true
+TARGET_USES_LOGD := true
+TARGET_USES_MKE2FS := true
 TW_EXCLUDE_TWRPAPP := true
 TW_HAS_EDL_MODE := true
 #TW_OZIP_DECRYPT_KEY := "1c4c1ea3a12531ae491b21bb31613c11"
@@ -133,4 +133,5 @@ TW_HAS_EDL_MODE := true
 
 # Hack: prevent anti rollback
 PLATFORM_SECURITY_PATCH := 2099-12-31
-PLATFORM_VERSION := 16.1.0
+
+TARGET_RECOVERY_FSTAB := device/Moqi/i7s/recovery.fstab
