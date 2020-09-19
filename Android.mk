@@ -25,7 +25,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),RMX1921)
+ifeq ($(TARGET_DEVICE),i7s)
 include $(call all-subdir-makefiles,$(LOCAL_PATH))
 include $(CLEAR_VARS)
 endif
